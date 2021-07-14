@@ -1,0 +1,48 @@
+<form class="example-form" [formGroup]="userForm">
+    <mat-dialog-actions align="end"  *ngIf="this.data">
+      <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="deleteUser()">Delete</button>
+  </mat-dialog-actions>
+   
+      <mat-form-field class="example-full-width">
+        <mat-label>FirstName</mat-label>
+        <input matInput placeholder="Please Enter Your FirstName Here" name="firstName" id="firstName" formControlName="firstName">
+      </mat-form-field>
+   
+      <mat-form-field class="example-full-width">
+        <mat-label>LastName</mat-label>
+        <input matInput placeholder="Please Enter Your LastName Here" name="lastname" id="lastname" formControlName="lastName">
+      </mat-form-field>
+   
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input  matInput placeholder="Enter Your Email address Here" name="email" id="email" formControlName="email">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+          <mat-label>Phone Number</mat-label>
+          <input matInput name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
+        </mat-form-field>
+        
+  <br/>      
+  <input class="ng-hide" id="input-file-id" multiple type="file" 
+  name="file" id="file" formControlName="file"
+  (change)="fileChange($event)"
+  />
+   
+  <br/>
+   
+    
+   
+  <mat-dialog-actions align="end" >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" *ngIf="!this.data" cdkFocusInitial type="submit" (click)= "create()">Create</button>
+    <button mat-button [mat-dialog-close]="true" *ngIf="this.data" cdkFocusInitial type="submit" (click)= "updateUser()">Update</button>
+  </mat-dialog-actions>
+   
+   
+   
+   
+    </form>
+  
+  
+  
